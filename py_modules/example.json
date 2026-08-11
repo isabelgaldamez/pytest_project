@@ -1,0 +1,22 @@
+{
+  "name" : "Amanda",
+  "email" : "amanda@email.com",
+  "hobbies" : ["Reading", "Swimming", "Hiking"],
+  "salary" : 1000,
+  "married" : true,
+  "address" : {"country" :  "Italy", "city" :  "Rome", "Phone" :  1234},
+  "skills" : [
+    {
+      "name" : "Python",
+      "years" : 3
+    },
+    {
+      "name" : "JS",
+      "years" : 5
+    },
+    {
+      "name" : "Pytest",
+      "years" : 2
+    }
+  ]
+}
