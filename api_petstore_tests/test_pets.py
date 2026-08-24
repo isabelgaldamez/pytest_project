@@ -1,7 +1,9 @@
 from utils.myconfigparser import *
 
 import utils.myutils as apiReq
-from utils.myutils import getAPIData, postAPIData, putAPIData, deletePetAPI
+# from utils.myutils import getAPIData, postAPIData, putAPIData, deletePetAPI
+import logging
+logger = logging.getLogger(__name__)
 
 # base_URI = 'https://petstore.swagger.io/v2/pet/'
 base_URI = getPetAPIURL()
@@ -48,6 +50,7 @@ def test_getPetById():
     # assert (data['name']) == 'Sasha', 'No name has been assigned'
 
 def test_postPet():
+    logger.info('POST request')
     url = base_URI
     data, res_status = apiReq.postAPIData(url, payloadPost)
     assert len(data) > 0, 'empty response'
@@ -66,7 +69,7 @@ def test_updatePet():
 def test_deletePet():
     url = base_URI + petId
     apiKey = {'api_key': 'key1'}
-    data, status_code = deletePetAPI(url, apiKey)
+    data, status_code = apiReq.deletePetAPI(url, apiKey)
     assert status_code == 200
     assert data['code'] == 200
     assert data['message'] == '51'
