@@ -1,0 +1,4 @@
+2026-08-24 10:35:38 [    INFO] [py_assertions.test_logging] Info log (test_logging.py:5)
+2026-08-24 10:35:38 [ WARNING] [py_assertions.test_logging] Warning Logs (test_logging.py:6)
+2026-08-24 10:35:38 [   ERROR] [py_assertions.test_logging] Error logs (test_logging.py:7)
+2026-08-24 10:35:38 [CRITICAL] [py_assertions.test_logging] Critical error (test_logging.py:8)
