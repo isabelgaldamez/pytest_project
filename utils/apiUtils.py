@@ -3,7 +3,7 @@ import requests, json
 def getApiData(url, opHeader=None):
     headers = {"Content-Type" : "application/json"}
     headers = (headers|opHeader) if isinstance(opHeader, dict) else headers
-    response = requests.get(url, verify=False, headers=opHeader)
+    response = requests.get(url, verify=False, headers=headers)
     return response
 
 def postApiData(url, body):
@@ -12,8 +12,9 @@ def postApiData(url, body):
     print('\nReqBody: ' + json.dumps(body))
     return requests.post(url, verify=False, headers = headers, json = body)
 
-def patchApiData(url, payload):
+def patchApiData(url, payload, opHeader):
     headers = {"Content-Type": "application/json"}
+    headers = (headers|opHeader) if isinstance(opHeader, dict) else headers
     return requests.put(url, verify=False, headers=headers, json=payload)
 
 
