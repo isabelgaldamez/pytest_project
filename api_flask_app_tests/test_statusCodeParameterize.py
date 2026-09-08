@@ -21,3 +21,4 @@ def test_getAllUserCountStatus(type, status):
     resp = getApiData(url, headers)
     print(resp.status_code)
     assert resp.status_code == status
+
