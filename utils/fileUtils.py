@@ -39,7 +39,7 @@ def getDataAsTuple(filename):
     dataList = getCsvDataAsList(filename)
     newlist= []
     for lines in dataList:
-        newlist.append((lines[:2], lines[2]))
+        newlist.append((lines[:2], lines[2])) #append(()) put a tuple inside the list,
 
     # To replace the prev 3 lines of code, you can write it into a single line
     # syntax: of List Comprenhension
@@ -52,4 +52,6 @@ def getDataAsTuple(filename):
 # values = ['alpha', 'beta', 'delta']
 # d = dict(zip(keys, values))
 # print(d)
-print(getCsvDataAsList('registerApiDataWithStatus.csv'))
+# print(getCsvDataAsDict('registerApiData.csv'))
+#
+# print(getCsvDataAsList('registerApiDataWithStatus.csv'))
