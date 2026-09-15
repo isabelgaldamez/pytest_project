@@ -17,4 +17,12 @@ def patchApiData(url, payload, opHeader):
     headers = (headers|opHeader) if isinstance(opHeader, dict) else headers
     return requests.put(url, verify=False, headers=headers, json=payload)
 
+def deleteApiData(url, body, opHeader=None):
+    headers = {"Content-Type": "application/json"}
+    headers = (headers | opHeader) if isinstance(opHeader, dict) else headers
+    print('\nReqURL: ' + url)
+    print('\nReqBody: ' + json.dumps(body))
+    response = requests.delete(url, json=body, headers=headers)
+    return response
+
 
