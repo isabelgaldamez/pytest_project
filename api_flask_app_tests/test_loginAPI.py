@@ -14,8 +14,9 @@ randNum = random.randint(0, 1000)
 user_email = 'automateUser@auto'+str(randNum)
 user_password = '1234'
 
-@pytest.fixture()
+@pytest.fixture(scope='module')
 def reg_user():
+    print('SETUP')
     payload = getPayloadDic_RegisterAPI(user_email, user_password)
     regUrl = baseURI + regUrlPath
     regResponse = postApiData(regUrl, payload)
@@ -23,6 +24,7 @@ def reg_user():
     assert regResponse.json()['id']
     data = regResponse.json()
     yield data  # Anything after this yield statement will run after the test is executed or as part of teardown, yield data will return the response, and this data can be used in the tests
+    print('TEARDOWN')
     delUrl = baseURI + delUrlPath
     loginUrl = baseURI + loginUrlPath # we need the access token to use it in delete, we will login to get it
     login_resp = postApiData(loginUrl, payload)
