@@ -12,7 +12,8 @@ baseURI = getFlaskAppBaseURL()
 loginURLPath = 'login'
 userURLPath = 'users' # gets all users from the system
 oneUserURLPath = 'users?id=4'
-@pytest.fixture
+# @pytest.fixture(scope='package')
+@pytest.fixture()
 def get_token():
     loginURL = baseURI + loginURLPath
     payload = getJsonFromFile(loginJsonFile)
